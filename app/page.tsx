@@ -1,7 +1,7 @@
-"use client"
-import Link from "next/link"
-import Image from "next/image"
-import { Github } from "lucide-react"
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import Header from "@/components/layout/header";
 
 const sampleImages = [
   {
@@ -34,60 +34,37 @@ const sampleImages = [
     src: "/images/dogs-stick.png",
     alt: "Two dogs sharing a stick on beach",
   },
-]
+];
 
 export default function HomePage() {
   const handleImageClick = (imageId: number) => {
-    window.location.href = `/demo?image=${imageId}`
-  }
+    window.location.href = `/demo?image=${imageId}`;
+  };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div>
-            <Link href="/">
-              <h1 className="text-2xl font-bold text-gray-900 cursor-pointer">miniSAM</h1>
-              <p className="text-sm text-gray-600">ONNX SAM segmentation directly in the browser</p>
-            </Link>
-          </div>
-          <nav className="flex items-center space-x-8">
-            <Link href="/" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">
-              Demo
-            </Link>
-            <Link href="/" className="text-gray-700 hover:text-gray-900">
-              About
-            </Link>
-            <a
-              href="https://github.com/iDash3/minisam"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-gray-900"
-            >
-              <Github className="w-6 h-6" />
-            </a>
-          </nav>
-        </div>
-      </header>
+      <Header activePage="home" />
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 py-12">
-        <div className="mb-8">
-          <p className="text-lg text-gray-700">
+      <main className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-8 text-center sm:text-left">
+          <p className="text-base text-gray-600">
             ↓ Find a photo in the gallery, or{" "}
-            <Link href="/demo" className="text-blue-600 underline hover:text-blue-800">
+            <Link
+              href="/demo"
+              className="text-blue-600 underline hover:text-blue-700"
+            >
               Upload an image
             </Link>
           </p>
         </div>
 
         {/* Image Gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-3 gap-4 space-y-4">
           {sampleImages.map((image) => (
             <div
               key={image.id}
-              className="cursor-pointer group overflow-hidden transition-shadow"
+              className="cursor-pointer group block break-inside-avoid overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out"
               onClick={() => handleImageClick(image.id)}
             >
               <Image
@@ -95,12 +72,12 @@ export default function HomePage() {
                 alt={image.alt}
                 width={400}
                 height={300}
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-200"
+                className="w-full h-auto object-cover block group-hover:opacity-90 transition-opacity duration-300"
               />
             </div>
           ))}
         </div>
       </main>
     </div>
-  )
+  );
 }
