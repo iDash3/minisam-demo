@@ -17,7 +17,7 @@ import {
   Sparkles,
   Loader2,
 } from "lucide-react";
-import { MiniSamSegmenter, type MiniSamRef } from "@minisam/react";
+import { MiniSamSegmenter, type MiniSamRef } from "minisam-react";
 import Header from "@/components/layout/header";
 
 const sampleImages = [

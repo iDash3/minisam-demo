@@ -1,8 +1,7 @@
 "use client"; // Required for MiniSamSegmenter and its hooks
 
 import Header from "@/components/layout/header";
-import { MiniSamSegmenter } from "@minisam/react"; // Removed MiniSamRef type import
-import Image from "next/image"; // For the code snippet display
+import { MiniSamSegmenter } from "minisam-react"; // Removed MiniSamRef type import
 
 const sampleImageForDemo = {
   src: "/images/corgi-running.png",
@@ -10,7 +9,7 @@ const sampleImageForDemo = {
 };
 
 const minimalImplementationCode = `
-import { MiniSamSegmenter } from "@minisam/react";
+import { MiniSamSegmenter } from "minisam-react";
 
 function MyAwesomeComponent() {
   return (
@@ -32,10 +31,10 @@ export default function AboutPage() {
       <Header activePage="about" />
       <main className="max-w-4xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
-          About @minisam/react & Simple Demo
+          About minisam-react & Simple Demo
         </h1>
         <p className="text-lg text-gray-700 mb-6">
-          <code>@minisam/react</code> provides ready-to-use React components for
+          <code>minisam-react</code> provides ready-to-use React components for
           integrating the miniSAM (Segment Anything Model) directly into your
           web applications. It handles model initialization, image loading,
           click handling, mask generation, and UI rendering with minimal setup.
